@@ -1,0 +1,86 @@
+:root {
+  --dp-color-hover: #c1ebff;
+  --dp-color-active: #89daff;
+  --dp-grid-gap: 5px;
+  --dp-button-size: 30px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper * {
+  box-sizing: border-box;
+  font-family: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.input {
+  padding: 5px 10px;
+}
+
+.datepicker {
+  position: absolute;
+  top: 100%;
+  display: none;
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+.datepicker button {
+  aspect-ratio: 1/1;
+  border: none;
+  border-radius: 9999px;
+  background-color: transparent;
+  width: var(--dp-button-size, 30px);
+}
+
+.datepicker button:hover {
+  background-color: var(--dp-color-hover);
+}
+
+.datepicker button:active {
+  background-color: var(--dp-color-active);
+}
+
+.input-wrapper:focus-within .datepicker,
+.datepicker:hover {
+  display: block;
+}
+
+.datepicker:has(.month-days > button:active) {
+  display: none;
+}
+
+.month-controls {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.arrow-button {
+  width: 20px;
+  font-weight: bold;
+}
+
+.week-days {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.5;
+}
+
+.week-days p {
+  width: 100%;
+  text-align: center;
+}
+
+.month-days {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--dp-grid-gap, 10px);
+}
