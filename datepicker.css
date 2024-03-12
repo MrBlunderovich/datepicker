@@ -28,18 +28,9 @@
   border-radius: 5px;
   box-shadow: 0 0 15px gray;
   padding: 5px;
-  display: none;
   transform-origin: top left;
-  animation: scale 300ms ease-in-out forwards;
-}
-
-@keyframes scale {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
+  transform: scale(0);
+  transition: transform 300ms ease-in-out;
 }
 
 .datepicker button {
@@ -58,9 +49,9 @@
   background-color: var(--dp-color-active);
 }
 
-.input-wrapper:focus-within .datepicker:not(:has(.month-days > button:active)),
-.datepicker:hover:not(:has(.month-days > button:active)) {
-  display: block;
+.input:focus + .datepicker:not(:has(.month-days > button:active)),
+.datepicker:hover:not(:has(.month-days > button:focus)) {
+  transform: scale(1);
 }
 
 .month-controls {
